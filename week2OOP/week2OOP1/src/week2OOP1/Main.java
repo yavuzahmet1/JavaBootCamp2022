@@ -35,6 +35,21 @@ public class Main {
 		}
 		System.out.println("</ul>");
 
+		IndividualCustomer individualCustomer = new IndividualCustomer();
+		individualCustomer.setCustomerNumber("23456");
+		individualCustomer.setId(1);
+		individualCustomer.setPhone("542111345");
+		individualCustomer.setFirstName("Ahmet");
+		individualCustomer.setLastName("YAVUZ");
+
+		CorporateCustomer corporateCustomer = new CorporateCustomer();
+		corporateCustomer.setId(10);
+		corporateCustomer.setCompanyName("Kodlama.io");
+		corporateCustomer.setPhone("5468732");
+		corporateCustomer.setTaxNumber("1111111");
+
+		Customer[] customers = { individualCustomer, corporateCustomer };
+
 	}
 
 }
