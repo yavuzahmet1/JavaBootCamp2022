@@ -8,8 +8,9 @@ public class Main {
 		// newlenmezler
 		// bir class birden fazla interfaceyi implemte edebilir.
 		// classlar birtane classý extends ederler
-		ICustomerDal customerDal = new MySqlDal();
-		customerDal.add();
+		CustomerManager cusManager = new CustomerManager(new MySqlDal());
+
+		cusManager.add();
 
 	}
 
