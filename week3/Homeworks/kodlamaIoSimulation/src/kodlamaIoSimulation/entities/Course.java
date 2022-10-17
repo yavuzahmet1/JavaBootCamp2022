@@ -1,15 +1,15 @@
 package kodlamaIoSimulation.entities;
 
-public class Instructor {
+public class Course {
 	private int id;
 	private String name;
-	private String lastName;
+	private int duration;
 
-	public Instructor(int id, String name, String lastName) {
+	public Course(int id, String name, int duration) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.lastName = lastName;
+		this.duration = duration;
 	}
 
 	public int getId() {
@@ -28,12 +28,12 @@ public class Instructor {
 		this.name = name;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public int getDuration() {
+		return duration;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
 }
