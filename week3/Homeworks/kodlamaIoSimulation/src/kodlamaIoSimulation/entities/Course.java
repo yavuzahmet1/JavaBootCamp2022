@@ -1,15 +1,15 @@
 package kodlamaIoSimulation.entities;
 
-public class Course {
+public class Course extends Base {
 	private int id;
 	private String name;
-	private int duration;
+	private double price;
 
-	public Course(int id, String name, int duration) {
+	public Course(int id, String name, double price) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.duration = duration;
+		this.price = price;
 	}
 
 	public int getId() {
@@ -28,12 +28,12 @@ public class Course {
 		this.name = name;
 	}
 
-	public int getDuration() {
-		return duration;
+	public double getDuration() {
+		return price;
 	}
 
-	public void setDuration(int duration) {
-		this.duration = duration;
+	public void setDuration(double price) {
+		this.price = price;
 	}
 
 }
