@@ -1,6 +1,6 @@
 package kodlamaIoSimulation.entities;
 
-public class Category extends Base {
+public class Category implements Base {
 	private int id;
 	private String name;
 

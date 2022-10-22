@@ -1,5 +1,5 @@
 package kodlamaIoSimulation.entities;
 
-public class Base {
+public interface Base {
 
 }

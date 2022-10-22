@@ -1,6 +1,6 @@
 package kodlamaIoSimulation.entities;
 
-public class Instructor extends Base {
+public class Instructor implements Base {
 	private int id;
 	private String name;
 	private String lastName;

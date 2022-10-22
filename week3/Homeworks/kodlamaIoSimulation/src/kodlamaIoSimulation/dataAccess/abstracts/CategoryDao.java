@@ -1,4 +1,4 @@
-package kodlamaIoSimulation.dataAccess;
+package kodlamaIoSimulation.dataAccess.abstracts;
 
 import kodlamaIoSimulation.entities.Category;
 

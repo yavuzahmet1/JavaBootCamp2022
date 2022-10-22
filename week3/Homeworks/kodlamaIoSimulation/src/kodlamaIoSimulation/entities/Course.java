@@ -1,6 +1,6 @@
 package kodlamaIoSimulation.entities;
 
-public class Course extends Base {
+public class Course implements Base {
 	private int id;
 	private String name;
 	private double price;
