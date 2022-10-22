@@ -1,6 +1,6 @@
 package kodlamaIoSimulation.entities;
 
-public class Course implements Base {
+public class Course {
 	private int id;
 	private String name;
 	private double price;
@@ -33,6 +33,14 @@ public class Course implements Base {
 	}
 
 	public void setDuration(double price) {
+		this.price = price;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
