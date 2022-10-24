@@ -17,12 +17,12 @@ public class CourseManager {
 	}
 
 	public void add(Course course) throws Exception {
-		for (Course c : courses_) {
-			if (c.getName().equals(course.getName())) {
-				throw new Exception("Kurs ismi tekrar edemez.");
-			}
-
-		}
+		/*
+		 * for (Course c : courses_) { if (c.getName().equals(course.getName())) { throw
+		 * new Exception("Kurs ismi tekrar edemez."); }
+		 * 
+		 * }
+		 */
 		if (course.getPrice() < 10) {
 			throw new Exception("Kurs 10 liradan az olamaz");
 		}
