@@ -20,6 +20,8 @@ public class InMemoryBrandRepository implements BrandRepository {
 		brands.add(new Brand(4, "Renault"));
 		brands.add(new Brand(5, "Fiat"));
 		brands.add(new Brand(6, "TOGG"));
+		brands.add(new Brand(7, "Toyota"));
+		brands.add(new Brand(8, "Hundai"));
 	}
 
 	@Override
