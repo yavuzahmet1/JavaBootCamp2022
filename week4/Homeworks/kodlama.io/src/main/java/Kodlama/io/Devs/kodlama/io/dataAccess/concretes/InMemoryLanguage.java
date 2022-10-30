@@ -26,4 +26,9 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
 
         return languages;
     }
+
+    @Override
+    public SoftwareLanguage getById() {
+        return null;
+    }
 }

@@ -36,7 +36,7 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
 
     @Override
     public void delete(int id) {
-        
+
     }
 
     @Override
