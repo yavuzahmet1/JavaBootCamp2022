@@ -12,5 +12,7 @@ public interface SoftwareLanguageService {
     void delete(int id);
 
     void update(SoftwareLanguage softwareLanguage);
+    boolean isBlankName(SoftwareLanguage softwareLanguage);
+    boolean isExist(SoftwareLanguage softwareLanguage);
 
 }

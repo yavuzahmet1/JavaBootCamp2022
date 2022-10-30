@@ -46,4 +46,14 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
     public void update(SoftwareLanguage softwareLanguage) {
 
     }
+
+    @Override
+    public boolean isBlankName(SoftwareLanguage softwareLanguage) {
+        return false;
+    }
+
+    @Override
+    public boolean isExist(SoftwareLanguage softwareLanguage) {
+        return false;
+    }
 }
