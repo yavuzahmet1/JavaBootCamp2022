@@ -1,21 +1,16 @@
 package Kodlama.io.Devs.kodlama.io.entity.concretes;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 
 public class SoftwareLanguage {
     private Long id;
-    private String softwareLanguage;
+    private String name;
 
     public SoftwareLanguage() {
     }
 
-    public SoftwareLanguage(Long id, String softwareLanguage) {
-        super();
+    public SoftwareLanguage(Long id, String name) {
         this.id = id;
-        this.softwareLanguage = softwareLanguage;
+        this.name = name;
     }
 
     public Long getId() {
@@ -26,11 +21,12 @@ public class SoftwareLanguage {
         this.id = id;
     }
 
-    public String getSoftwareLanguage() {
-        return softwareLanguage;
+    public String getName() {
+        return name;
     }
 
-    public void setSoftwareLanguage(String softwareLanguage) {
-        this.softwareLanguage = softwareLanguage;
+    public void setName(String name) {
+        this.name = name;
     }
 }
+

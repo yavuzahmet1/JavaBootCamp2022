@@ -24,8 +24,11 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
     }
 
     @Override
-    public void add(SoftwareLanguage softwareLanguage) {
-
+    public void add(SoftwareLanguage softwareLanguage) throws Exception {
+        if(softwareLanguage.getName().isBlank()){
+            throw new Exception("Name must not be blank");
+            
+        }
 
     }
 

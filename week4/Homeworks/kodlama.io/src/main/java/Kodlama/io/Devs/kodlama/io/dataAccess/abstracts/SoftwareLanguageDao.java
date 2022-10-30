@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface SoftwareLanguageDao {
     List<SoftwareLanguage> getAll();
+
     SoftwareLanguage getById();
+
 }

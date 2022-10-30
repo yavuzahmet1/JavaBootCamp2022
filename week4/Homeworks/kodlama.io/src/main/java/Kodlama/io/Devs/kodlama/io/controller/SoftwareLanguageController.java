@@ -24,4 +24,7 @@ public class SoftwareLanguageController {
 
         return this.softwareLanguageService.getAll();
     }
+    public void add(SoftwareLanguage softwareLanguage) throws Exception {
+        softwareLanguageService.add(softwareLanguage);
+    }
 }

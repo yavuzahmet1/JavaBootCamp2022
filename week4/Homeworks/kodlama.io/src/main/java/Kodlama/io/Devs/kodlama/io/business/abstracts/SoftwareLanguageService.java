@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SoftwareLanguageService {
     List<SoftwareLanguage> getAll();
-    void add(SoftwareLanguage softwareLanguage);
+    void add(SoftwareLanguage softwareLanguage) throws Exception;
     void delete(SoftwareLanguage softwareLanguage);
 
     void delete(int id);
