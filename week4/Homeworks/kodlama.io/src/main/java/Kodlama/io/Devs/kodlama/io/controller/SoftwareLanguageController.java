@@ -3,14 +3,12 @@ package Kodlama.io.Devs.kodlama.io.controller;
 import Kodlama.io.Devs.kodlama.io.business.abstracts.SoftwareLanguageService;
 import Kodlama.io.Devs.kodlama.io.entity.concretes.SoftwareLanguage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/language")
+@RequestMapping("/api/languages")
 public class SoftwareLanguageController {
     private SoftwareLanguageService softwareLanguageService;
 
@@ -24,7 +22,9 @@ public class SoftwareLanguageController {
 
         return this.softwareLanguageService.getAll();
     }
-    public void add(SoftwareLanguage softwareLanguage) throws Exception {
-        softwareLanguageService.add(softwareLanguage);
+    @PostMapping()
+    public SoftwareLanguage add(@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
+        return softwareLanguageService.add(softwareLanguage);
     }
+
 }

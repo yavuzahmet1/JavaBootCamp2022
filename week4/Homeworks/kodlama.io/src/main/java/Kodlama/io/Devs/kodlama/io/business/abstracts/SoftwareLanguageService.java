@@ -6,12 +6,13 @@ import java.util.List;
 
 public interface SoftwareLanguageService {
     List<SoftwareLanguage> getAll();
-    void add(SoftwareLanguage softwareLanguage) throws Exception;
-    void delete(SoftwareLanguage softwareLanguage);
+
+    SoftwareLanguage getById(int id);
+    SoftwareLanguage add(SoftwareLanguage softwareLanguage) throws Exception;
 
     void delete(int id);
 
-    void update(SoftwareLanguage softwareLanguage);
+    SoftwareLanguage update(int id,SoftwareLanguage softwareLanguage);
     boolean isBlankName(SoftwareLanguage softwareLanguage);
     boolean isExist(SoftwareLanguage softwareLanguage);
 

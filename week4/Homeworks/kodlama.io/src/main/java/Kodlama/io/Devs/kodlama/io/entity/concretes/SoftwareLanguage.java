@@ -2,22 +2,22 @@ package Kodlama.io.Devs.kodlama.io.entity.concretes;
 
 
 public class SoftwareLanguage {
-    private Long id;
+    private int id;
     private String name;
 
     public SoftwareLanguage() {
     }
 
-    public SoftwareLanguage(Long id, String name) {
+    public SoftwareLanguage(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

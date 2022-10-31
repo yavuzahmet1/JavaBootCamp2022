@@ -8,6 +8,13 @@ import java.util.List;
 public interface SoftwareLanguageDao {
     List<SoftwareLanguage> getAll();
 
-    SoftwareLanguage getById();
+    SoftwareLanguage getById(int id);
+
+    SoftwareLanguage add(SoftwareLanguage softwareLanguage) throws Exception;
+
+    void delete(int id);
+
+    SoftwareLanguage update(int id, SoftwareLanguage softwareLanguage);
+
 
 }

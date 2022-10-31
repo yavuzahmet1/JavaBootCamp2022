@@ -24,36 +24,48 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
     }
 
     @Override
-    public void add(SoftwareLanguage softwareLanguage) throws Exception {
-        if(softwareLanguage.getName().isBlank()){
-            throw new Exception("Name must not be blank");
-            
-        }
-
+    public SoftwareLanguage getById(int id) {
+        return softwareLanguageDao.getById(id);
     }
 
     @Override
-    public void delete(SoftwareLanguage softwareLanguage) {
+    public SoftwareLanguage add(SoftwareLanguage softwareLanguage) throws Exception {
+        if (isBlankName(softwareLanguage) || isExist(softwareLanguage)) {
+            throw new Exception("Name must not be blank");
+
+        } else if (isExist(softwareLanguage)) {
+            throw new Exception("You want to add language is exist");
+        }
+        return softwareLanguageDao.add(softwareLanguage);
 
     }
 
     @Override
     public void delete(int id) {
-
+        softwareLanguageDao.delete(id);
     }
 
     @Override
-    public void update(SoftwareLanguage softwareLanguage) {
-
+    public SoftwareLanguage update(int id, SoftwareLanguage softwareLanguage) {
+        return softwareLanguageDao.update(id,softwareLanguage);
     }
 
     @Override
     public boolean isBlankName(SoftwareLanguage softwareLanguage) {
+        if(softwareLanguage.getName().isEmpty()||softwareLanguage.getName().isBlank()) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean isExist(SoftwareLanguage softwareLanguage) {
+        for (SoftwareLanguage sf:softwareLanguageDao.getAll()){
+            if (sf.getName().equalsIgnoreCase(softwareLanguage.getName())){
+                return true;
+            }
+        }
+
         return false;
     }
 }

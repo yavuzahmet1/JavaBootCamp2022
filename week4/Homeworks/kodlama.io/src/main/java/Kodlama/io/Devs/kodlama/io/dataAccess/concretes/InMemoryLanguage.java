@@ -13,12 +13,12 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
     List<SoftwareLanguage> languages;
 
     public InMemoryLanguage() {
-        languages=new ArrayList<SoftwareLanguage>();
-        languages.add(new SoftwareLanguage(1L,"C#"));
-        languages.add(new SoftwareLanguage(2L,"Java"));
-        languages.add(new SoftwareLanguage(3L,"Go"));
-        languages.add(new SoftwareLanguage(4L,"PHP"));
-        languages.add(new SoftwareLanguage(5L,"PHP"));
+        languages = new ArrayList<SoftwareLanguage>();
+        languages.add(new SoftwareLanguage(1, "C#"));
+        languages.add(new SoftwareLanguage(2, "Java"));
+        languages.add(new SoftwareLanguage(3, "Go"));
+        languages.add(new SoftwareLanguage(4, "PHP"));
+        languages.add(new SoftwareLanguage(5, "PHP"));
     }
 
     @Override
@@ -28,8 +28,26 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
     }
 
     @Override
-    public SoftwareLanguage getById() {
-        return null;
+    public SoftwareLanguage getById(int id) {
+        return languages.get(id);
+    }
+
+
+    @Override
+    public SoftwareLanguage add(SoftwareLanguage softwareLanguage) throws Exception {
+        languages.add(softwareLanguage);
+        return softwareLanguage;
+    }
+
+    @Override
+    public void delete(int id) {
+        languages.remove(id-1);
+    }
+
+    @Override
+    public SoftwareLanguage update(int id, SoftwareLanguage softwareLanguage) {
+
+        return languages.set(id,softwareLanguage);
     }
 
 }
