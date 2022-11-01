@@ -10,11 +10,11 @@ public interface SoftwareLanguageDao {
 
     SoftwareLanguage getById(int id);
 
-    void add(SoftwareLanguage softwareLanguage) throws Exception;
+    void add(SoftwareLanguage softwareLanguage);
 
     void delete(SoftwareLanguage softwareLanguage);
 
-    void update(SoftwareLanguage softwareLanguage) throws Exception;
+    void update(SoftwareLanguage softwareLanguage);
 
 
 }

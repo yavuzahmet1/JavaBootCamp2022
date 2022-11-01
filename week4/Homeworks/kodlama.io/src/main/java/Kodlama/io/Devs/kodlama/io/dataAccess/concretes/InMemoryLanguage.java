@@ -17,43 +17,50 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
         languages.add(new SoftwareLanguage(1, "C#"));
         languages.add(new SoftwareLanguage(2, "Java"));
         languages.add(new SoftwareLanguage(3, "Go"));
-        languages.add(new SoftwareLanguage(4, "PHP"));
-        languages.add(new SoftwareLanguage(5, "PHP"));
+
     }
 
     @Override
     public List<SoftwareLanguage> getAll() {
 
-        return languages;
+        return this.languages;
     }
 
     @Override
     public SoftwareLanguage getById(int id) {
-        return languages.get(id);
+
+        return this.languages.get(id);
     }
 
 
     @Override
-    public void add(SoftwareLanguage softwareLanguage) throws Exception {
-        languages.add(softwareLanguage);
+    public void add(SoftwareLanguage softwareLanguage)  {
+        this.languages.add(softwareLanguage);
 
     }
 
 
     @Override
     public void delete(SoftwareLanguage softwareLanguage) {
-
-        languages.remove(softwareLanguage);
+        SoftwareLanguage softLang=findLanguage(softwareLanguage.getId());
+        languages.remove(softLang);
     }
 
     @Override
-    public void update(SoftwareLanguage softwareLanguage) throws Exception{
+    public void update(SoftwareLanguage softwareLanguage) {
+        SoftwareLanguage softLang=findLanguage(softwareLanguage.getId());
+        softLang.setName(softwareLanguage.getName());
+    }
 
-        for (SoftwareLanguage language : languages) {
-            if (language.getId() == language.getId()) {
-                languages.set(language.getId() -1, language);
+    private SoftwareLanguage findLanguage(int id) {
+        SoftwareLanguage softLang=null;
+        for (SoftwareLanguage fakeSoftLang:languages){
+            if (fakeSoftLang.getId()==id){
+                softLang=fakeSoftLang;
+                break;
             }
         }
+        return null;
     }
 
 }
