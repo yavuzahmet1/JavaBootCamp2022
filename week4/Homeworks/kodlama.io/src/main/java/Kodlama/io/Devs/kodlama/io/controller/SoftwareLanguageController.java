@@ -23,24 +23,26 @@ public class SoftwareLanguageController {
         return this.softwareLanguageService.getAll();
     }
 
-    @PostMapping()
-    public SoftwareLanguage add(@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
-        return softwareLanguageService.add(softwareLanguage);
+    @PostMapping("/add")
+    public void add(@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
+        softwareLanguageService.add(softwareLanguage);
     }
 
-    @GetMapping("{id}")
-    public SoftwareLanguage getById(@PathVariable("id") int id) {
+    @GetMapping("/getByid/{id}")
+    public SoftwareLanguage getById(@PathVariable int id) {
+
         return softwareLanguageService.getById(id);
     }
 
-    @PutMapping("{id}")
-    public SoftwareLanguage update(@PathVariable("id") int id,@RequestBody SoftwareLanguage softwareLanguage){
-        return softwareLanguageService.update(id,softwareLanguage);
+    @PutMapping("/update")
+    public void update(@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
+        softwareLanguageService.update(softwareLanguage);
     }
 
-    @DeleteMapping("{id}")
-    public void delete(@PathVariable("id") int id){
-        softwareLanguageService.delete(id);
+    @DeleteMapping("/delete")
+    public void delete(@RequestBody SoftwareLanguage softwareLanguage){
+
+        softwareLanguageService.delete(softwareLanguage);
     }
 
 }

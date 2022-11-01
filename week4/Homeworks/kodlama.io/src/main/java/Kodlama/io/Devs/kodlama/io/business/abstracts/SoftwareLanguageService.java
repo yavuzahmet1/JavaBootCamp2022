@@ -8,12 +8,11 @@ public interface SoftwareLanguageService {
     List<SoftwareLanguage> getAll();
 
     SoftwareLanguage getById(int id);
-    SoftwareLanguage add(SoftwareLanguage softwareLanguage) throws Exception;
+    void add(SoftwareLanguage softwareLanguage) throws Exception;
 
-    void delete(int id);
+    void delete(SoftwareLanguage softwareLanguage);
 
-    SoftwareLanguage update(int id,SoftwareLanguage softwareLanguage);
-    boolean isBlankName(SoftwareLanguage softwareLanguage);
-    boolean isExist(SoftwareLanguage softwareLanguage);
+    void update(SoftwareLanguage softwareLanguage) throws Exception;
+
 
 }

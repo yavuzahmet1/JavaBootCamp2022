@@ -34,20 +34,26 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
 
 
     @Override
-    public SoftwareLanguage add(SoftwareLanguage softwareLanguage) throws Exception {
+    public void add(SoftwareLanguage softwareLanguage) throws Exception {
         languages.add(softwareLanguage);
-        return softwareLanguage;
+
+    }
+
+
+    @Override
+    public void delete(SoftwareLanguage softwareLanguage) {
+
+        languages.remove(softwareLanguage);
     }
 
     @Override
-    public void delete(int id) {
-        languages.remove(id-1);
-    }
+    public void update(SoftwareLanguage softwareLanguage) throws Exception{
 
-    @Override
-    public SoftwareLanguage update(int id, SoftwareLanguage softwareLanguage) {
-
-        return languages.set(id,softwareLanguage);
+        for (SoftwareLanguage language : languages) {
+            if (language.getId() == language.getId()) {
+                languages.set(language.getId() -1, language);
+            }
+        }
     }
 
 }
