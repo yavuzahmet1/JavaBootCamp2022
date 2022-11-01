@@ -17,7 +17,7 @@ public class SoftwareLanguageController {
         this.softwareLanguageService = softwareLanguageService;
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/getall")
     public List<SoftwareLanguage> getAll() {
 
         return this.softwareLanguageService.getAll();
@@ -25,24 +25,24 @@ public class SoftwareLanguageController {
 
     @PostMapping("/add")
     public void add(@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
-        softwareLanguageService.add(softwareLanguage);
+        this.softwareLanguageService.add(softwareLanguage);
     }
 
-    @GetMapping("/getByid/{id}")
-    public SoftwareLanguage getById(@PathVariable int id) {
+    @GetMapping("/getbyid/{id}")
+    public SoftwareLanguage getById(@PathVariable("id") int id) {
 
-        return softwareLanguageService.getById(id);
+        return this.softwareLanguageService.getById(id);
     }
 
     @PutMapping("/update")
     public void update(@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
-        softwareLanguageService.update(softwareLanguage);
+        this.softwareLanguageService.update(softwareLanguage);
     }
 
     @DeleteMapping("/delete")
     public void delete(@RequestBody SoftwareLanguage softwareLanguage){
 
-        softwareLanguageService.delete(softwareLanguage);
+        this.softwareLanguageService.delete(softwareLanguage);
     }
 
 }
