@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public class InMemoryLanguage implements SoftwareLanguageDao {
     List<SoftwareLanguage> languages;
+    SoftwareLanguage sfL;
 
     public InMemoryLanguage() {
         languages = new ArrayList<SoftwareLanguage>();
@@ -29,7 +30,7 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
     @Override
     public SoftwareLanguage getById(int id) {
 
-        return this.languages.get(id);
+        return findLanguage(id);
     }
 
 
