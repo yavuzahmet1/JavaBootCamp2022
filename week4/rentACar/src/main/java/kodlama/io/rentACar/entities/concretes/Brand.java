@@ -1,33 +1,25 @@
 package kodlama.io.rentACar.entities.concretes;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Table(name = "brands")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Brand {
-	private int id;
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//sen 1 1 arttır demektir.
+    @Column(name = "id")
+    private int id;
 
-	public Brand() {
-		super();
-	}
-
-	public Brand(int id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
+    @Column(name = "name")
+    private String name;
 }
+
+//Veribanına karlışık gelen isimler
+//her entitiy için ayrı repository yazılması gerekecek

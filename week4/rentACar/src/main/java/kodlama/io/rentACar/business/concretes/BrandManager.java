@@ -2,6 +2,7 @@ package kodlama.io.rentACar.business.concretes;
 
 import java.util.List;
 
+import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +16,15 @@ public class BrandManager implements BrandService {
 
 	@Autowired
 	public BrandManager(BrandRepository brandRepository) {
+
 		brandRepository_ = brandRepository;
 	}
 
 	@Override
-	public List<Brand> getAll() {
+	public List<GetAllBrandsResponse> getAll() {
 		// İş kuralları
 
-		return brandRepository_.getAll();
+		return brandRepository_.findAll();
 	}
 
 }
