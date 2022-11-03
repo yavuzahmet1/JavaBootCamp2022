@@ -2,29 +2,28 @@ package kodlama.io.rentACar.business.concretes;
 
 import java.util.List;
 
-import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
+import kodlama.io.rentACar.entities.concretes.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.rentACar.business.abstracts.BrandService;
 import kodlama.io.rentACar.dataAccess.abstracts.BrandRepository;
-import kodlama.io.rentACar.entities.concretes.Brand;
 
-@Service // bu sınıf bir business nesnesidir.
+@Service
 public class BrandManager implements BrandService {
-	private BrandRepository brandRepository_;
+	private BrandRepository brandRepository;
 
 	@Autowired
 	public BrandManager(BrandRepository brandRepository) {
 
-		brandRepository_ = brandRepository;
+		this.brandRepository = brandRepository;
 	}
 
 	@Override
-	public List<GetAllBrandsResponse> getAll() {
+	public List<Brand> getAll() {
 		// İş kuralları
 
-		return brandRepository_.findAll();
+		return brandRepository.findAll();
 	}
 
 }

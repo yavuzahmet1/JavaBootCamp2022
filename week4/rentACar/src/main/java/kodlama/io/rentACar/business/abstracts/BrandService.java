@@ -7,6 +7,6 @@ import kodlama.io.rentACar.entities.concretes.Brand;
 
 public interface BrandService {
 	//List<Brand> getAll();
-	List<GetAllBrandsResponse> getAll();
+	List<Brand> getAll();
 
 }
