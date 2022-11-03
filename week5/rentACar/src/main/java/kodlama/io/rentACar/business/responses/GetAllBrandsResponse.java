@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllBrandsResponse {
-    private int id;
+public class GetAllBrandsResponse {//verilen data
+    private int id;                 //İki datayı vermek istediğimizden bunları tanımladık
     private String name;
 }
