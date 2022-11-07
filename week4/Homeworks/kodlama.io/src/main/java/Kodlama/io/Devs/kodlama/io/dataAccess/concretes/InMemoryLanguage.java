@@ -30,7 +30,7 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
     @Override
     public SoftwareLanguage getById(int id) {
 
-        return findLanguage(id);
+        return languages.stream().filter(softwareLanguage -> softwareLanguage.getId()==id).findFirst().get();
     }
 
 
@@ -42,18 +42,18 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
 
 
     @Override
-    public void delete(SoftwareLanguage softwareLanguage) {
-        SoftwareLanguage softLang=findLanguage(softwareLanguage.getId());
-        languages.remove(softLang);
+    public void delete(int id) {
+
+        languages.remove(getById(id));
     }
 
     @Override
-    public void update(SoftwareLanguage softwareLanguage) {
-        SoftwareLanguage softLang=findLanguage(softwareLanguage.getId());
+    public void update(int id,SoftwareLanguage softwareLanguage){
+        SoftwareLanguage softLang=getById(id);
         softLang.setName(softwareLanguage.getName());
     }
 
-    private SoftwareLanguage findLanguage(int id) {
+/*    private SoftwareLanguage findLanguage(int id) {
         SoftwareLanguage softLang=null;
         for (SoftwareLanguage fakeSoftLang:languages){
             if (fakeSoftLang.getId()==id){
@@ -62,6 +62,6 @@ public class InMemoryLanguage implements SoftwareLanguageDao {
             }
         }
         return null;
-    }
+    }*/
 
 }

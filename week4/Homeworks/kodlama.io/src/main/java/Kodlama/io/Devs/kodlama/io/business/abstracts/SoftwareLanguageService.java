@@ -7,12 +7,12 @@ import java.util.List;
 public interface SoftwareLanguageService {
     List<SoftwareLanguage> getAll();
 
-    SoftwareLanguage getById(int id);
+    SoftwareLanguage getById(int id)throws Exception;
     void add(SoftwareLanguage softwareLanguage) throws Exception;
 
-    void delete(SoftwareLanguage softwareLanguage);
+    void delete(int id)throws Exception;
 
-    void update(SoftwareLanguage softwareLanguage) throws Exception;
+    void update(int id,SoftwareLanguage softwareLanguage) throws Exception;
 
 
 }

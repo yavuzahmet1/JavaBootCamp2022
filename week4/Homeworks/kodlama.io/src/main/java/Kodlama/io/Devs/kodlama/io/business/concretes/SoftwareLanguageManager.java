@@ -24,36 +24,53 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
     }
 
     @Override
-    public SoftwareLanguage getById(int id) {
-        return this.softwareLanguageDao.getById(id);
+    public SoftwareLanguage getById(int id) throws Exception {
+        for (SoftwareLanguage sfl : softwareLanguageDao.getAll()) {
+            if (sfl.getId() == id) {
+                return sfl;
+            }
+        }
+        throw new Exception("Not exist this id : " + id);
     }
 
     @Override
     public void add(SoftwareLanguage softwareLanguage) throws Exception {
-        if (isBlankName(softwareLanguage) || isExist(softwareLanguage)) {
-            throw new Exception("Name must not be blank");
-
-        } else if (isExist(softwareLanguage)) {
-            throw new Exception("You want to add language is exist");
+        if (softwareLanguage.getId() == 0) throw new Exception("Id is not empty!!");
+        if (softwareLanguage.getName().isEmpty()) throw new Exception("Name can not be emptiy!!");
+        for (SoftwareLanguage sfl : softwareLanguageDao.getAll()) {
+            if (sfl.getName().toLowerCase().equals(softwareLanguage.getName().toLowerCase()) || sfl.getId() == softwareLanguage.getId()) {
+                throw new Exception("Name is already exist");
+            }
         }
-        this.softwareLanguageDao.add(softwareLanguage);
-
+        softwareLanguageDao.add(softwareLanguage);
     }
 
     @Override
-    public void delete(SoftwareLanguage softwareLanguage) {
-        this.softwareLanguageDao.delete(softwareLanguage);
-    }
-
-    @Override
-    public void update(SoftwareLanguage softwareLanguage) throws Exception{
-        if (isExist(softwareLanguage)||isBlankName(softwareLanguage)){
-        this.softwareLanguageDao.update(softwareLanguage);
+    public void delete(int id) throws Exception {
+        if (softwareLanguageDao.getAll().isEmpty()) throw new Exception("There is not language");
+        for (SoftwareLanguage sfl : softwareLanguageDao.getAll()) {
+            if (sfl.getId() == id) {
+                softwareLanguageDao.delete(id);
+                return;
+            }
+            throw new Exception("There is not language exist : " + id);
         }
     }
 
+    @Override
+    public void update(int id, SoftwareLanguage softwareLanguage) throws Exception {
+        if (softwareLanguage.getName().isEmpty()) throw new Exception("You must not be language name");
+        for (SoftwareLanguage sfl : softwareLanguageDao.getAll()) {
+            if (sfl.getName().toLowerCase().equals(softwareLanguage.getName().toLowerCase())) {
+                throw new Exception("Software Languange is already exist");
+            }
+        }
+        softwareLanguageDao.update(id, softwareLanguage);
 
-    public boolean isBlankName(SoftwareLanguage softwareLanguage) throws Exception{
+    }
+
+
+ /*   public boolean isBlankName(SoftwareLanguage softwareLanguage) throws Exception{
         if(softwareLanguage.getName().isEmpty()||softwareLanguage.getName().isBlank()) {
            throw new Exception("Name must not be blank or empty");
         }
@@ -71,5 +88,5 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
         }
 
         return false;
-    }
+    }*/
 }

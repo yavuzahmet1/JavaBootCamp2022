@@ -28,21 +28,21 @@ public class SoftwareLanguageController {
         this.softwareLanguageService.add(softwareLanguage);
     }
 
-    @GetMapping("/getbyid/{id}")
-    public SoftwareLanguage getById(@PathVariable("id") int id) {
+    @GetMapping("/{id}")
+    public SoftwareLanguage getById(@PathVariable int id) throws Exception {
 
         return this.softwareLanguageService.getById(id);
     }
 
     @PutMapping("/update")
-    public void update(@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
-        this.softwareLanguageService.update(softwareLanguage);
+    public void update(@PathVariable int id,@RequestBody SoftwareLanguage softwareLanguage) throws Exception {
+        this.softwareLanguageService.update(id,softwareLanguage);
     }
 
     @DeleteMapping("/delete")
-    public void delete(@RequestBody SoftwareLanguage softwareLanguage){
+    public void delete(@PathVariable int id) throws Exception{
 
-        this.softwareLanguageService.delete(softwareLanguage);
+        this.softwareLanguageService.delete(id);
     }
 
 }

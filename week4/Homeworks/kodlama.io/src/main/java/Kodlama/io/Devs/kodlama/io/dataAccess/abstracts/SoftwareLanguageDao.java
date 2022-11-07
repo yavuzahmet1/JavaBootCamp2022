@@ -12,9 +12,9 @@ public interface SoftwareLanguageDao {
 
     void add(SoftwareLanguage softwareLanguage);
 
-    void delete(SoftwareLanguage softwareLanguage);
+    void delete(int id);
 
-    void update(SoftwareLanguage softwareLanguage);
+    void update(int id,SoftwareLanguage softwareLanguage);
 
 
 }
