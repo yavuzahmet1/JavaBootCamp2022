@@ -29,7 +29,7 @@ public class BrandsController {
 		this.brandService = brandService;
 	}*/
 
-	@GetMapping("/getAll")
+	@GetMapping("/getall")
 	public List<GetAllBrandsResponse> getAll() {
 		return this.brandService.getAll();
 	}
