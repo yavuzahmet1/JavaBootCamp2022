@@ -1,5 +1,7 @@
 package com.kodlama.io.devweek5.controller;
+
 import java.util.List;
+
 import com.kodlama.io.devweek5.entity.Technology;
 import com.kodlama.io.devweek5.service.abstracts.TechnologyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +15,13 @@ public class TechnologyController {
 
     @PostMapping("/add")
     public void addTechnology(@RequestBody Technology technology) {
-        System.out.println("Teknoloji ekleme");
+        technologyService.add(technology);
     }
 
     @DeleteMapping("/delete")
-    public void deleteTechnology(Technology technology) {
-        System.out.println("Teknoloji silme");
+    public void deleteTechnology() {
+
+        technologyService.delete();
     }
 
     @PutMapping("/update")

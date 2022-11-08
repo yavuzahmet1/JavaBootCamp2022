@@ -20,8 +20,7 @@ public class SoftwareLanguage {
     @Column(name = "software_language_name")
     private String softwareLanguageName;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_soft_id",referencedColumnName = "id")
+    @OneToMany(mappedBy = "softwareLanguage")
     private List<Technology> technologies;
 
 /*

@@ -15,4 +15,9 @@ public class TechnologyManager implements TechnologyService {
     public List<Technology> getAll() {
         return technologyRepository.findAll();
     }
+
+    @Override
+    public void add(Technology technology) {
+
+    }
 }
