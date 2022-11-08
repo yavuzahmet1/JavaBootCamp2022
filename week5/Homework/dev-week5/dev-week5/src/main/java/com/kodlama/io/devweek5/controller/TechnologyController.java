@@ -1,9 +1,35 @@
 package com.kodlama.io.devweek5.controller;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+import com.kodlama.io.devweek5.entity.Technology;
+import com.kodlama.io.devweek5.service.abstracts.TechnologyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/technologies")
 public class TechnologyController {
+    @Autowired
+    private TechnologyService technologyService;
+
+    @PostMapping("/add")
+    public void addTechnology(@RequestBody Technology technology) {
+        System.out.println("Teknoloji ekleme");
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteTechnology(Technology technology) {
+        System.out.println("Teknoloji silme");
+    }
+
+    @PutMapping("/update")
+    public void updateTechnology(Technology technology) {
+        System.out.println("Teknoloji güncelleme");
+    }
+
+    @GetMapping("/getall")
+    List<Technology> getAllTechnology() {
+
+        System.out.println("Teknoloji hepsini getirir");
+        return technologyService.getAll();
+    }
 }
