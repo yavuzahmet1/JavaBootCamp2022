@@ -18,4 +18,9 @@ public class Technology {
     @Column(name="technology_name")
     private String technologyName;
 
+  /*  @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_tek_id",referencedColumnName = "id")
+    private SoftwareLanguage softwareLanguage;*/
+
+
 }
