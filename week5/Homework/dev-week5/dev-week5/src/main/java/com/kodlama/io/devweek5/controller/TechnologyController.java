@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.kodlama.io.devweek5.entity.Technology;
 import com.kodlama.io.devweek5.service.abstracts.TechnologyService;
+import com.kodlama.io.devweek5.service.request.technologyRequest.DeleteTechnologyRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +20,9 @@ public class TechnologyController {
     }
 
     @DeleteMapping("/delete")
-    public void deleteTechnology() {
+    public void deleteTechnology(DeleteTechnologyRequest deleteTechnologyRequest) {
 
-        technologyService.delete();
+        technologyService.delete(deleteTechnologyRequest);
     }
 
     @PutMapping("/update")
