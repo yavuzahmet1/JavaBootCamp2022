@@ -11,5 +11,5 @@ public interface SoftwareLanguageService {
     List<GetAllSoftwareLanguageResponse> getAll();
     void add(AddSoftwareLanguageRequest addSoftwareLanguageRequest);
     void delete(DeleteSoftwareLanguageRequest deleteSoftwareLanguageRequest) throws Exception;
-    void update(UpdateSoftwareLanguageRequest updateSoftwareLanguageRequest);
+    void update(UpdateSoftwareLanguageRequest updateSoftwareLanguageRequest) throws Exception;
 }

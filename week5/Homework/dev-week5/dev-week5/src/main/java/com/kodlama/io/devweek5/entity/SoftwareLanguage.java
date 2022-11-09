@@ -20,7 +20,7 @@ public class SoftwareLanguage {
     @Column(name = "software_language_name")
     private String softwareLanguageName;
 
-    @OneToMany(mappedBy = "softwarelanguages",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Technology> technologies;
 
 /*

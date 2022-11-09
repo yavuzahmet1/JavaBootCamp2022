@@ -21,10 +21,10 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
 
     @Override
     public List<GetAllSoftwareLanguageResponse> getAll() {
-        List<SoftwareLanguage> softwareLanguages=softwareLanguageRepository.findAll();
-        List<GetAllSoftwareLanguageResponse>softwareLanguageResponses=new ArrayList<GetAllSoftwareLanguageResponse>();
-        for (SoftwareLanguage softwareLanguage:softwareLanguages){
-            GetAllSoftwareLanguageResponse responseSoft=new GetAllSoftwareLanguageResponse();
+        List<SoftwareLanguage> softwareLanguages = softwareLanguageRepository.findAll();
+        List<GetAllSoftwareLanguageResponse> softwareLanguageResponses = new ArrayList<GetAllSoftwareLanguageResponse>();
+        for (SoftwareLanguage softwareLanguage : softwareLanguages) {
+            GetAllSoftwareLanguageResponse responseSoft = new GetAllSoftwareLanguageResponse();
             responseSoft.setId(softwareLanguage.getId());
             responseSoft.setSoftName(softwareLanguage.getSoftwareLanguageName());
             softwareLanguageResponses.add(responseSoft);
@@ -41,7 +41,7 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
 
     @Override
     public void delete(DeleteSoftwareLanguageRequest deleteSoftwareLanguageRequest) throws Exception {
-        if (isIdExist(deleteSoftwareLanguageRequest.getId())){
+        if (isIdExist(deleteSoftwareLanguageRequest.getId())) {
             throw new Exception("Id is not delete because it not exist!!!");
         }
         softwareLanguage.setId(deleteSoftwareLanguageRequest.getId());
@@ -50,21 +50,22 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
     }
 
     @Override
-    public void update(UpdateSoftwareLanguageRequest updateSoftwareLanguageRequest) {
-
+    public void update(UpdateSoftwareLanguageRequest updateSoftwareLanguageRequest) throws Exception {
+        if (isNameExist(updateSoftwareLanguageRequest.getSoftName()) || !isIdExist(updateSoftwareLanguageRequest.getId())) {
+            throw new Exception("There is a lack of Id or Name information. Please check");
+        }
     }
-
-    public boolean isIdExist(int id){
-        for(SoftwareLanguage listId:softwareLanguageRepository.findAll()){
-            if (listId.getId()==id){
+    public boolean isIdExist(int id) {
+        for (SoftwareLanguage listId : softwareLanguageRepository.findAll()) {
+            if (listId.getId() == id) {
                 return true;
             }
         }
         return false;
     }
-    public boolean isNameExist(String name){
-        for (SoftwareLanguage listName:softwareLanguageRepository.findAll()){
-            if (listName.getSoftwareLanguageName().toLowerCase().equals(name.toLowerCase())){
+    public boolean isNameExist(String name) {
+        for (SoftwareLanguage listName : softwareLanguageRepository.findAll()) {
+            if (listName.getSoftwareLanguageName().toLowerCase().equals(name.toLowerCase())) {
                 return true;
             }
         }
