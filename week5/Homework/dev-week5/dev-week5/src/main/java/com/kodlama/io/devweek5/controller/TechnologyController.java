@@ -16,13 +16,13 @@ public class TechnologyController {
 
     @PostMapping("/add")
     public void addTechnology(@RequestBody Technology technology) {
-        technologyService.add(technology);
+
     }
 
     @DeleteMapping("/delete")
     public void deleteTechnology(DeleteTechnologyRequest deleteTechnologyRequest) {
 
-        technologyService.delete(deleteTechnologyRequest);
+
     }
 
     @PutMapping("/update")
@@ -34,6 +34,6 @@ public class TechnologyController {
     List<Technology> getAllTechnology() {
 
         System.out.println("Teknoloji hepsini getirir");
-        return technologyService.getAll();
+    return null;
     }
 }
