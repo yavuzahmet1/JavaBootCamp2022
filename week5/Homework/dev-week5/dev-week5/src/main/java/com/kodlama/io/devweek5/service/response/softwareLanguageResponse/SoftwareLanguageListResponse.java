@@ -10,7 +10,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SoftwareLanguageResponse {
+public class SoftwareLanguageListResponse {
+    private int id;
     private String name;
 
     List<TecnologyListResponse> tecnologyListResponses;

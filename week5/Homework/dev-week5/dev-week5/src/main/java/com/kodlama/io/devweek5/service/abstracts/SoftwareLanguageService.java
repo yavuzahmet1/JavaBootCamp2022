@@ -1,7 +1,10 @@
 package com.kodlama.io.devweek5.service.abstracts;
 
 import com.kodlama.io.devweek5.entity.SoftwareLanguage;
+import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.CreateSoftwareLanguageRequest;
 import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.UpdateSoftwareLanguageRequest;
+import com.kodlama.io.devweek5.service.response.softwareLanguageResponse.SoftwareLanguageListResponse;
+import com.kodlama.io.devweek5.service.response.softwareLanguageResponse.SoftwareLanguageResponse;
 
 import java.util.List;
 

@@ -4,7 +4,10 @@ import com.kodlama.io.devweek5.entity.SoftwareLanguage;
 import com.kodlama.io.devweek5.repository.abstracts.SoftwareLanguageRepository;
 import com.kodlama.io.devweek5.service.abstracts.SoftwareLanguageService;
 import com.kodlama.io.devweek5.service.abstracts.TechnologyService;
+import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.CreateSoftwareLanguageRequest;
 import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.UpdateSoftwareLanguageRequest;
+import com.kodlama.io.devweek5.service.response.softwareLanguageResponse.SoftwareLanguageListResponse;
+import com.kodlama.io.devweek5.service.response.softwareLanguageResponse.SoftwareLanguageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,7 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
         this.softwareLanguageRepository = softwareLanguageRepository;
         this.technologyService=technologyService;
     }
+
 
     @Override
     public CreateSoftwareLanguageRequest add(CreateSoftwareLanguageRequest createSoftwareLanguageRequest) throws Exception {
