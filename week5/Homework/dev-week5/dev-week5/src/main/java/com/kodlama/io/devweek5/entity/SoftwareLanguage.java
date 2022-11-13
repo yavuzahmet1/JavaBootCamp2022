@@ -1,4 +1,5 @@
 package com.kodlama.io.devweek5.entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kodlama.io.devweek5.entity.Technology;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "softwarelanguages")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","Lazy"})
 public class SoftwareLanguage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +22,7 @@ public class SoftwareLanguage {
     @Column(name = "software_language_name")
     private String softwareLanguageName;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany
     private List<Technology> technologies;
 
 /*

@@ -2,9 +2,7 @@ package com.kodlama.io.devweek5.controller;
 
 import com.kodlama.io.devweek5.service.abstracts.SoftwareLanguageService;
 import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.AddSoftwareLanguageRequest;
-import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.DeleteSoftwareLanguageRequest;
 import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.UpdateSoftwareLanguageRequest;
-import com.kodlama.io.devweek5.service.response.softwareLanguageResponse.GetAllSoftwareLanguageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

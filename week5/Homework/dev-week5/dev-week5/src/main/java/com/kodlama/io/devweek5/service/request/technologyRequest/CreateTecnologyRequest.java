@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddTechnologyRequest {
-    private String techName;
-    private int fkForSoftId;
+public class CreateTecnologyRequest {
+    private String name;
+
 }
