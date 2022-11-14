@@ -1,38 +1,48 @@
 package com.kodlama.io.devweek5.controller;
 
-import java.util.List;
-
-import com.kodlama.io.devweek5.entity.Technology;
 import com.kodlama.io.devweek5.service.abstracts.TechnologyService;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.kodlama.io.devweek5.service.request.technologyRequest.CreateTecnologyRequest;
+import com.kodlama.io.devweek5.service.request.technologyRequest.UpdateTechnologyRequest;
+import com.kodlama.io.devweek5.service.response.technologyResponse.TecnologyListResponse;
+import com.kodlama.io.devweek5.service.response.technologyResponse.TecnologyResponse;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/technologies")
 public class TechnologyController {
-    @Autowired
     private TechnologyService technologyService;
 
-    @PostMapping("/add")
-    public void addTechnology(@RequestBody Technology technology) {
+    public TechnologyController(TechnologyService technologyService) {
+        this.technologyService = technologyService;
+    }
 
+    @PostMapping("/add")
+    CreateTecnologyRequest add(@RequestBody CreateTecnologyRequest createTecnologyRequest) throws Exception {
+        return this.technologyService.add(createTecnologyRequest);
+    }
+
+    @GetMapping("getbyid")
+    TecnologyResponse getById(@RequestParam int id) throws Exception {
+        return this.technologyService.getById(id);
     }
 
     @DeleteMapping("/delete")
-    public void deleteTechnology(DeleteTechnologyRequest deleteTechnologyRequest) {
-
-
+    String delete(int id) throws Exception {
+        return this.technologyService.delete(id);
     }
 
     @PutMapping("/update")
-    public void updateTechnology(Technology technology) {
-        System.out.println("Teknoloji güncelleme");
+    TecnologyResponse update(@RequestParam int id, @RequestBody UpdateTechnologyRequest updateTechnologyRequest) throws Exception {
+        return this.technologyService.update(id, updateTechnologyRequest);
     }
 
     @GetMapping("/getall")
-    List<Technology> getAllTechnology() {
-
-        System.out.println("Teknoloji hepsini getirir");
-    return null;
+    List<TecnologyListResponse> getAll()throws Exception{
+        return this.technologyService.getAll();
     }
+
+
 }
