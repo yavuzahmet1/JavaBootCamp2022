@@ -8,9 +8,11 @@ import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.CreateSof
 import com.kodlama.io.devweek5.service.request.softwareLanguageRequest.UpdateSoftwareLanguageRequest;
 import com.kodlama.io.devweek5.service.response.softwareLanguageResponse.SoftwareLanguageListResponse;
 import com.kodlama.io.devweek5.service.response.softwareLanguageResponse.SoftwareLanguageResponse;
+import com.kodlama.io.devweek5.service.response.technologyResponse.TecnologyResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,13 +24,26 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
     @Autowired
     public SoftwareLanguageManager(SoftwareLanguageRepository softwareLanguageRepository, TechnologyService technologyService) {
         this.softwareLanguageRepository = softwareLanguageRepository;
-        this.technologyService=technologyService;
+        this.technologyService = technologyService;
     }
 
 
     @Override
     public CreateSoftwareLanguageRequest add(CreateSoftwareLanguageRequest createSoftwareLanguageRequest) throws Exception {
-        return null;
+        isEmptyName(createSoftwareLanguageRequest.getName());
+        isExistName(createSoftwareLanguageRequest.getName());
+        List<TecnologyResponse> technologies = new ArrayList<>();
+
+        for (Integer id:createSoftwareLanguageRequest.getTechnologyIds()){
+            TecnologyResponse technologyById=technologyService.getById(id);
+            technologies.add(technologyById);
+        }
+        SoftwareLanguage softwareLanguage=new SoftwareLanguage();
+        softwareLanguage.setId((int) Math.random());
+        softwareLanguage.setName(createSoftwareLanguageRequest.getName());
+        this.softwareLanguageRepository.save(softwareLanguage);
+        return createSoftwareLanguageRequest;
+
     }
 
     @Override
@@ -54,5 +69,35 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
     @Override
     public SoftwareLanguage getSoftwareLanguageById(int id) {
         return null;
+    }
+
+    private void isValidId(int id) throws Exception {
+        if (id <= 0) {
+            throw new Exception("Id is not valid.");
+        }
+    }
+
+    private void isNotExist(int id) throws Exception {
+        List<SoftwareLanguage> softwareLanguages = this.softwareLanguageRepository.findAll();
+        for (SoftwareLanguage language : softwareLanguages) {
+            if (language.getId() != id) {
+                throw new Exception(" There is not exist id : " + id);
+            }
+        }
+    }
+
+    private void isEmptyName(String name) throws Exception {
+        if (name == null || name == "") {
+            throw new Exception("Name is not null!!");
+        }
+    }
+
+    private void isExistName(String name) throws Exception {
+        List<SoftwareLanguage> language = this.softwareLanguageRepository.findAll();
+        for (SoftwareLanguage languages : language) {
+            if (languages.getName().equalsIgnoreCase(name)) {
+                throw new Exception("Name is already exist : " + name);
+            }
+        }
     }
 }

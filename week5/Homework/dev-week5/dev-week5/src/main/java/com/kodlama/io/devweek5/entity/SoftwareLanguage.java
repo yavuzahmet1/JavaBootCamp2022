@@ -20,7 +20,7 @@ public class SoftwareLanguage {
     @Column(name = "id")
     private int id;
     @Column(name = "software_language_name")
-    private String softwareLanguageName;
+    private String name;
 
     @OneToMany
     private List<Technology> technologies;
