@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SoftwareLanguageManager implements SoftwareLanguageService {
@@ -48,6 +49,12 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
 
     @Override
     public SoftwareLanguageResponse getById(int id) throws Exception {
+        isValidId(id);
+        isNotExist(id);
+        Optional<SoftwareLanguage> softwareLanguage=this.softwareLanguageRepository.findById(id);
+        SoftwareLanguageResponse softwareLanguageResponse=new SoftwareLanguageResponse();
+        
+
         return null;
     }
 
