@@ -85,11 +85,13 @@ public class SoftwareLanguageManager implements SoftwareLanguageService {
         List<SoftwareLanguage> softwareLanguageList = this.softwareLanguageRepository.findAll();
         List<SoftwareLanguageListResponse> softwareLanguageListResponseList = new ArrayList<>();
         List<TecnologyListResponse> tecnologyListResponseList = new ArrayList<>();
+
         for (SoftwareLanguage softList : softwareLanguageList) {
             SoftwareLanguageListResponse softwareLanguageListResponse = new SoftwareLanguageListResponse();
             softwareLanguageListResponse.setId(softList.getId());
             softwareLanguageListResponse.setName(softList.getName());
             softwareLanguageListResponseList.add(softwareLanguageListResponse);
+
             for (Technology tech : softList.getTechnologies()) {
                 TecnologyListResponse tecnologyListResponse = new TecnologyListResponse();
                 TecnologyResponse technologyById = this.technologyService.getById(tech.getTechnologyId());
