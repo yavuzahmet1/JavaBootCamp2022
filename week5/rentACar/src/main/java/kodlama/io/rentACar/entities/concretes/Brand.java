@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "brands")
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Table(name = "brands")
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//sen 1 1 arttır demektir.
