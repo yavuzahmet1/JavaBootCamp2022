@@ -2,7 +2,7 @@ package kodlama.io.rentACar.webApi.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +14,8 @@ import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
 
 @RestController
 @RequestMapping("/api/brands") // adresleme
+@AllArgsConstructor
 public class BrandsController {
-	@Autowired
 	private BrandService brandService;
 
 	//@Autowired // git parametrelerine bak kim bu paramaetreleri implemet ediyorsa onu new'le
