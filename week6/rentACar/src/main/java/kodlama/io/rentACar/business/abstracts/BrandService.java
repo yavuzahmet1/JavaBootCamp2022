@@ -2,8 +2,8 @@ package kodlama.io.rentACar.business.abstracts;
 
 import java.util.List;
 
-import kodlama.io.rentACar.business.requests.CreateBrandRequest;
-import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
+import kodlama.io.rentACar.dto.requests.CreateBrandRequest;
+import kodlama.io.rentACar.dto.responses.GetAllBrandsResponse;
 
 public interface BrandService {
 	List<GetAllBrandsResponse> getAll(); // yanıtımız yani Response edilecek

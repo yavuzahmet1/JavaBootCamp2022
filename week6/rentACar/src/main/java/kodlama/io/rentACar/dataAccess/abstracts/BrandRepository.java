@@ -1,10 +1,7 @@
 package kodlama.io.rentACar.dataAccess.abstracts;
 
-import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
 import kodlama.io.rentACar.entities.concretes.Brand;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 public interface BrandRepository extends JpaRepository<Brand,Integer> {
 	//List<Brand> getAll();// getAll'ı çağıran birisi markaları listeler.
