@@ -2,6 +2,8 @@ package kodlama.io.rentACar.webApi.controllers;
 
 import java.util.List;
 
+import kodlama.io.rentACar.dto.requests.UpdateBrandRequest;
+import kodlama.io.rentACar.dto.responses.GetByIdBrandResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,29 +16,44 @@ import kodlama.io.rentACar.dto.responses.GetAllBrandsResponse;
 @RequestMapping("/api/brands") // adresleme
 @AllArgsConstructor
 public class BrandsController {
-	private BrandService brandService;
+    private BrandService brandService;
 
-	//@Autowired // git parametrelerine bak kim bu paramaetreleri implemet ediyorsa onu new'le
-	/*
-	 * public BrandsController(BrandService brandService_) { brandService =
-	 * brandService; }
-	 */
+    //@Autowired // git parametrelerine bak kim bu paramaetreleri implemet ediyorsa onu new'le
+    /*
+     * public BrandsController(BrandService brandService_) { brandService =
+     * brandService; }
+     */
 
 /*	public BrandsController(BrandService brandService) {
 		//super();
 		this.brandService = brandService;
 	}*/
 
-	@GetMapping
-	public List<GetAllBrandsResponse> getAll() {
-		return this.brandService.getAll();
-	}
+    @GetMapping
+    public List<GetAllBrandsResponse> getAll() {
+        return this.brandService.getAll();
+    }
 
-	@PostMapping
-	@ResponseStatus(code = HttpStatus.CREATED)
-	public void add(CreateBrandRequest createBrandRequest) {
+    @GetMapping("/{id}")
+    public GetByIdBrandResponse getById(@PathVariable int id) {
+        return this.brandService.getById(id);
+    }
 
-		this.brandService.add(createBrandRequest);
-	}
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public void add(CreateBrandRequest createBrandRequest) {
+
+        this.brandService.add(createBrandRequest);
+    }
+
+    @PutMapping
+    public void update(@RequestBody UpdateBrandRequest updateBrandRequest) {
+        this.brandService.update(updateBrandRequest);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id) {
+        this.brandService.delete(id);
+    }
 
 }

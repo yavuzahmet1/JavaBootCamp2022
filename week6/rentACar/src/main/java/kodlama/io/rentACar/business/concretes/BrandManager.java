@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import kodlama.io.rentACar.core.mappers.ModelMapperService;
+import kodlama.io.rentACar.dto.requests.UpdateBrandRequest;
+import kodlama.io.rentACar.dto.responses.GetByIdBrandResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,16 @@ public class BrandManager implements BrandService {
     }
 
     @Override
+    public GetByIdBrandResponse getById(int id) {
+
+        Brand brand = this.brandRepository.findById(id).orElseThrow();
+
+        GetByIdBrandResponse response = this.modelMapperService.forResponse().map(brand, GetByIdBrandResponse.class);
+
+        return response;
+    }
+
+    @Override
     public void add(CreateBrandRequest createBrandRequest) {
 
         /*Brand brand = new Brand();
@@ -51,6 +63,19 @@ public class BrandManager implements BrandService {
                 .map(createBrandRequest, Brand.class);
 
         this.brandRepository.save(brand);
+    }
+
+    @Override
+    public void update(UpdateBrandRequest updateBrandRequest) {
+        Brand brand = this.modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
+        this.brandRepository.save(brand);
+
+    }
+
+    @Override
+    public void delete(int id) {
+        this.brandRepository.deleteById(id);
+
     }
 
 }
