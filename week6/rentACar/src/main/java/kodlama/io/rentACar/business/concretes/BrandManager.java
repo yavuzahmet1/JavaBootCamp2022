@@ -56,13 +56,15 @@ public class BrandManager implements BrandService {
     @Override
     public void add(CreateBrandRequest createBrandRequest) {
 
-        /*Brand brand = new Brand();
-		brand.setName(createBrandRequest.getName());*/
+        //Brand brand = new Brand();
 
-        Brand brand = this.modelMapperService.forRequest()
+		//brand.setName(createBrandRequest.getName());
+        //brand.setName("deneme");
+
+        Brand brand = modelMapperService.forRequest()
                 .map(createBrandRequest, Brand.class);
 
-        this.brandRepository.save(brand);
+        brandRepository.save(brand);
     }
 
     @Override
