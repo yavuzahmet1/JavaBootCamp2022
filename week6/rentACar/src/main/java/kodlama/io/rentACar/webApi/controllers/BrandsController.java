@@ -6,7 +6,6 @@ import kodlama.io.rentACar.dto.requests.UpdateBrandRequest;
 import kodlama.io.rentACar.dto.responses.GetByIdBrandResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import kodlama.io.rentACar.business.abstracts.BrandService;
@@ -41,7 +40,7 @@ public class BrandsController {
     }
 
     @PostMapping
-   @ResponseStatus(code = HttpStatus.CREATED)
+    @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateBrandRequest createBrandRequest) {
 
         brandService.add(createBrandRequest);

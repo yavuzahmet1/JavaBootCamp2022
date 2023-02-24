@@ -46,9 +46,10 @@ public class BrandManager implements BrandService {
     @Override
     public GetByIdBrandResponse getById(int id) {
 
-        Brand brand = this.brandRepository.findById(id).orElseThrow();
+        Brand brand = brandRepository.findById(id).orElseThrow();
 
-        GetByIdBrandResponse response = this.modelMapperService.forResponse().map(brand, GetByIdBrandResponse.class);
+        GetByIdBrandResponse response = modelMapperService.forResponse()
+                .map(brand, GetByIdBrandResponse.class);
 
         return response;
     }
@@ -66,17 +67,15 @@ public class BrandManager implements BrandService {
 
         brandRepository.save(brand);
     }
-
     @Override
     public void update(UpdateBrandRequest updateBrandRequest) {
-        Brand brand = this.modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
-        this.brandRepository.save(brand);
+        Brand brand = modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
+        brandRepository.save(brand);
 
     }
-
     @Override
     public void delete(int id) {
-        this.brandRepository.deleteById(id);
+        brandRepository.deleteById(id);
 
     }
 
