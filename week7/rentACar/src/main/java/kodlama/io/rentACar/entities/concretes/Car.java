@@ -19,15 +19,19 @@ public class Car {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "plate")
+    @Column(name = "plate", unique = true)
     private String plate;
 
     @Column(name = "daily_price")
-    private String dailyPrice;
+    private double dailyPrice;
 
     @Column(name = "model_year")
     private int modelYear;
 
     @Column(name = "state")
-    private String state;//1-aviable, 2-rented, 3-maintance
+    private int state;//1-aviable, 2-rented, 3-maintance
+
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    private Model model;
 }
