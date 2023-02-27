@@ -3,6 +3,7 @@ package kodlama.io.rentACar.business.concretes;
 import kodlama.io.rentACar.business.abstracts.ModelService;
 import kodlama.io.rentACar.core.mappers.ModelMapperService;
 import kodlama.io.rentACar.dataAccess.abstracts.ModelRepository;
+import kodlama.io.rentACar.dto.requests.CreateModelRequest;
 import kodlama.io.rentACar.dto.responses.GetAllModelsResponse;
 import kodlama.io.rentACar.entities.concretes.Model;
 import lombok.AllArgsConstructor;
@@ -28,5 +29,13 @@ public class ModelManager implements ModelService {
                 .collect(Collectors.toList());
 
         return modelsResponse;
+    }
+
+    @Override
+    public void add(CreateModelRequest createModelRequest) {
+        Model model = this.modelMapperService.forRequest()
+                .map(createModelRequest, Model.class);
+
+        this.modelRepository.save(model);
     }
 }

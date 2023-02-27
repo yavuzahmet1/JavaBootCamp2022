@@ -1,6 +1,5 @@
 package kodlama.io.rentACar.dto.requests;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,10 +13,13 @@ import javax.validation.constraints.Size;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateBrandRequest {//İstek
-    //niye name isteğinde bulunduk? çünkü id otomatik artarak kayıt ediliyor o yüzden ona gerek yok
+public class CreateModelRequest {
     @NotNull
     @NotBlank
     @Size(min=3,max=20)
     private String name;
+
+    @NotNull
+    @NotBlank
+    private int brandId;
 }
